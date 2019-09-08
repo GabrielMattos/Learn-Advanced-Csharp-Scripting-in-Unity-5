@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-
     public float maxSpeed = 1f;
     private Transform thisTranform = null;
 
@@ -22,6 +21,6 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        thisTranform.position += thisTranform.forward * maxSpeed;
+        thisTranform.position += thisTranform.forward * (maxSpeed * Time.deltaTime);
     }
 }
