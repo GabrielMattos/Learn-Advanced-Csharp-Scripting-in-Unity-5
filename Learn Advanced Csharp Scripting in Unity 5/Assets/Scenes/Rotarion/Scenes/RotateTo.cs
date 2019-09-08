@@ -25,6 +25,8 @@ public class RotateTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        thisTransform.rotation = Quaternion.LookRotation(target.position - thisTransform.position, Vector3.up);
+        Quaternion destRot = Quaternion.LookRotation(target.position - thisTransform.position, Vector3.up);
+
+        thisTransform.rotation = Quaternion.RotateTowards(thisTransform.rotation, destRot, rotSpeed * Time.deltaTime);
     }
 }
