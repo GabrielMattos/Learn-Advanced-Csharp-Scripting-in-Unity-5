@@ -26,6 +26,17 @@ public class DisplaceObject : MonoBehaviour
         localForward = Vector3.forward;
         transformForward = thisTransform.forward;
 
-        thisTransform.position += thisTransform.forward * displaceSpeed * Time.deltaTime;
+        //thisTransform.position += thisTransform.forward * displaceSpeed * Time.deltaTime;
+        
+        //1 way
+        //Vector3 localSpaceDisplacement = Vector3.forward * displaceSpeed * Time.deltaTime;
+        //Vector3 worldSpaceDisplacement = thisTransform.TransformDirection(localSpaceDisplacement);
+        //thisTransform.position += worldSpaceDisplacement;
+
+        //2 way
+        Vector3 localSpaceDisplacement = Vector3.forward * displaceSpeed * Time.deltaTime;
+        Vector3 worldSpaceDisplacement = thisTransform.rotation * localSpaceDisplacement;
+        thisTransform.position += worldSpaceDisplacement;
+
     }
 }
