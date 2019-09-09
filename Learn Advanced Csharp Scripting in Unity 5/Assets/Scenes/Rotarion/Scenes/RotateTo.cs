@@ -18,8 +18,8 @@ public class RotateTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //RotateTowards();
-        RotateTowardsWithDamp();
+        RotateTowards();
+        //RotateTowardsWithDamp();
     }
 
     void RotateTowards() {
@@ -33,7 +33,7 @@ public class RotateTo : MonoBehaviour
 
         Quaternion destRot = Quaternion.LookRotation(target.position - transform.position, Vector3.up);
 
-        Quaternion smoothRot = Quaternion.Slerp(transform.rotation, destRot, 1f - Time.deltaTime * damping);
+        Quaternion smoothRot = Quaternion.Slerp(transform.rotation, destRot, 1f - (Time.deltaTime * damping));
 
         transform.rotation = smoothRot;
     }
