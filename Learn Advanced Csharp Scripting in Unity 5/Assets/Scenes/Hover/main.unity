@@ -339,10 +339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f7fe48d55cbda41b9e795e457f3ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1035385209}
-  cameraOffset: {x: 10, y: 15, z: 0}
-  smoothFactor: 0.5
-  lookAtPlayer: 1
 --- !u!1 &1035385208
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b428c8152934df54c8167a9457f9a8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 30
   distanceFronGround: 2
   angleSpeed: 5
 --- !u!1 &1718913499
