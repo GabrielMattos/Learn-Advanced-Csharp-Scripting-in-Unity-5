@@ -15,6 +15,6 @@ public class InventoryItem : MonoBehaviour
             return;
         }
 
-        
+        Inventory.AddItem(gameObject);
     }
 }
