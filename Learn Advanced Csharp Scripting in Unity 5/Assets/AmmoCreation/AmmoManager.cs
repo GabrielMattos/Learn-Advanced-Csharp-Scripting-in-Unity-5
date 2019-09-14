@@ -12,7 +12,7 @@ public class AmmoManager : MonoBehaviour
 
     public static AmmoManager ammoManagerSingleton = null;
 
-    public Queue<Transform> ammoQueue = new Queue<Transform>;
+    public Queue<Transform> ammoQueue = new Queue<Transform>();
 
     private void Awake() {
         
@@ -39,6 +39,11 @@ public class AmmoManager : MonoBehaviour
 
     public static Transform SpawnAmmo(Vector3 position, Quaternion rotation) {
 
-
+        Transform spawnedAmmo = ammoManagerSingleton.ammoQueue.Dequeue();
+        spawnedAmmo.gameObject.SetActive(true);
+        spawnedAmmo.position = position;
+        spawnedAmmo.rotation = rotation;
+        ammoManagerSingleton.ammoQueue.Enqueue(spawnedAmmo);
+        return spawnedAmmo;
     }
 }
