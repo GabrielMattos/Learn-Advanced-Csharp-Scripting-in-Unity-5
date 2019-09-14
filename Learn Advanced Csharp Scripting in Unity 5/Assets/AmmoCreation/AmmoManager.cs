@@ -12,6 +12,8 @@ public class AmmoManager : MonoBehaviour
 
     public static AmmoManager ammoManagerSingleton = null;
 
+    public Queue<Transform> ammoQueue = new Queue<Transform>;
+
     private void Awake() {
         
         if(ammoManagerSingleton != null) {
@@ -30,12 +32,13 @@ public class AmmoManager : MonoBehaviour
             ammoArray[i] = Instantiate(ammoPrefab, Vector3.zero, Quaternion.identity) as GameObject;
             Transform objTransform = ammoArray[i].GetComponent<Transform>();
             objTransform.parent = transform;
+            ammoQueue.Enqueue(objTransform);
+            ammoArray[i].SetActive(false);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public static Transform SpawnAmmo(Vector3 position, Quaternion rotation) {
+
+
     }
 }
