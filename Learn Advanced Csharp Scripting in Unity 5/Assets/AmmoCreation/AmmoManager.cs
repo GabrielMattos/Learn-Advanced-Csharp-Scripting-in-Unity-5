@@ -22,6 +22,17 @@ public class AmmoManager : MonoBehaviour
         ammoManagerSingleton = this;
     }
 
+    private void Start() {
+        
+        ammoArray = new GameObject[poolSize];
+
+        for(int i = 0; i < poolSize; i++) {
+            ammoArray[i] = Instantiate(ammoPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+            Transform objTransform = ammoArray[i].GetComponent<Transform>();
+            objTransform.parent = transform;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

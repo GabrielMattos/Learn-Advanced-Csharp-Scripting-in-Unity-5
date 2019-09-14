@@ -476,7 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0a7cad4066c8946acd5dbb3c3dd7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoPrefab: {fileID: 0}
+  ammoPrefab: {fileID: 4742808744063527806, guid: 32ca94a9261d4c546b24dfa8d6e12fe9,
+    type: 3}
   poolSize: 100
 --- !u!4 &954426776
 Transform:
