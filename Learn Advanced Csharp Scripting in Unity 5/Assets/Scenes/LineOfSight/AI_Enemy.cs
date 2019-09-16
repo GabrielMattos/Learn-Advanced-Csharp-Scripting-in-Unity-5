@@ -78,23 +78,55 @@ public class AI_Enemy : MonoBehaviour
             yield return null;
         }
     }
-
     
     public IEnumerator AIChase() {
 
         while(currentState == ENEMY_STATE.CHASE) {
+
+            thisLineSight.sensitity = LineSight.sightSensitivity.LOOSE;
+
+            thisAgent.Resume();
+            thisAgent.SetDestination(thisLineSight.lastKnowSighting);
+
+            if (thisAgent.remainingDistance <= thisAgent.stoppingDistance) {
+                thisAgent.Stop();
+
+                if(!thisLineSight.canSeeTarget) {
+                    CurrentState = ENEMY_STATE.PATROL;
+                } else {
+                    CurrentState = ENEMY_STATE.ATTACK;
+                }
+
+                yield break;
+            }
+
             yield return null;
         }
-        
     }
 
-
-    
     public IEnumerator AIAttack() {
 
         while(currentState == ENEMY_STATE.ATTACK) {
+
+            thisAgent.Resume();
+            thisAgent.SetDestination(playerTranform.position);
+
+            while (thisAgent.pathPending)
+            {
+                yield return null;
+            }
+
+            if (thisAgent.remainingDistance > thisAgent.stoppingDistance) {
+                CurrentState = ENEMY_STATE.CHASE;
+                yield break;
+            } else {
+                playerHealth.HealthPoints -= maxDamage * Time.deltaTime;
+            }
+
             yield return null;
         }
+
+        yield break;
     }
 
     // Update is called once per frame

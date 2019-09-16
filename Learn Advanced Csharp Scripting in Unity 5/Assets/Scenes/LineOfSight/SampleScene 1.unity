@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0cd6163f4c094593f8a63e06d9423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPoints: 100
 --- !u!20 &1300109802 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942,
@@ -468,7 +469,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   thisAgent: {fileID: 0}
+  playerHealth: {fileID: 1165398195}
   patrolDestination: {fileID: 805547568}
+  maxDamage: 100
 --- !u!1 &1544797246
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,16 +715,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1826201897201363581, guid: 8484329df7de5ed41807a4f71ff7f468,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826201897201363581, guid: 8484329df7de5ed41807a4f71ff7f468,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 5404662145528730053, guid: 8484329df7de5ed41807a4f71ff7f468,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -743,6 +736,16 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1268408694184180222, guid: 8484329df7de5ed41807a4f71ff7f468,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826201897201363581, guid: 8484329df7de5ed41807a4f71ff7f468,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826201897201363581, guid: 8484329df7de5ed41807a4f71ff7f468,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
