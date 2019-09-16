@@ -10,7 +10,31 @@ public class AI_Enemy : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent thisAgent = null;
     public Transform patrolDestination = null;
 
+    public ENEMY_STATE CurrentState {
 
+        get { 
+            return currentState;
+        }
+
+        set {
+            currentState = value;
+            StopAllCoroutines();
+            switch (currentState) {
+
+                case ENEMY_STATE.PATROL:
+                    StartCoroutine(AIPatrol());
+                break;
+
+                case ENEMY_STATE.CHASE:
+                    StartCoroutine(AIChase());
+                break;
+
+                case ENEMY_STATE.ATTACK:
+                    StartCoroutine(AIAttack());
+                break;
+            }
+        }
+    }
 
 
     public IEnumerator AIPatrol() {
