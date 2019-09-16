@@ -10,6 +10,34 @@ public class AI_Enemy : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent thisAgent = null;
     public Transform patrolDestination = null;
 
+
+
+
+    public IEnumerator AIPatrol() {
+
+        while(currentState == ENEMY_STATE.PATROL) {
+            yield return null;
+        }
+    }
+
+    
+    public IEnumerator AIChase() {
+
+        while(currentState == ENEMY_STATE.CHASE) {
+            yield return null;
+        }
+        
+    }
+
+
+    
+    public IEnumerator AIAttack() {
+
+        while(currentState == ENEMY_STATE.ATTACK) {
+            yield return null;
+        }
+    }
+
     private void Awake() {
         
         thisAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
