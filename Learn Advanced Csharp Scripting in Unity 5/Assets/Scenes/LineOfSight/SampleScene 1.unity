@@ -365,6 +365,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1165398194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 666227695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1165398195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165398194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0cd6163f4c094593f8a63e06d9423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1300109802 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2000000, guid: c6453f8e1f814744d8b94e5a6d1f9942,
@@ -448,6 +466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e550f6e74b8a9df409f3f6a179d13fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  thisAgent: {fileID: 0}
   patrolDestination: {fileID: 805547568}
 --- !u!1 &1544797246
 GameObject:
@@ -547,7 +567,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 666227695}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1165398194}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81c9795a96c094f4cbde4d65546aa9b2, type: 3}

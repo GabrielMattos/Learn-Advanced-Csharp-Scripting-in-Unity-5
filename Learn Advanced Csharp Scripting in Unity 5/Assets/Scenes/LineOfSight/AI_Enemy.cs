@@ -6,8 +6,8 @@ public class AI_Enemy : MonoBehaviour
 {
 
     public enum ENEMY_STATE {PATROL, CHASE, ATTACK};
-    private ENEMY_STATE currentState = ENEMY_STATE.PATROL;
-    private UnityEngine.AI.NavMeshAgent thisAgent = null;
+    public ENEMY_STATE currentState = ENEMY_STATE.PATROL;
+    public UnityEngine.AI.NavMeshAgent thisAgent = null;
     public Transform patrolDestination = null;
 
     public ENEMY_STATE CurrentState {
