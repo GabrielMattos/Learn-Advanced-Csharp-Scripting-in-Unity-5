@@ -5,8 +5,9 @@ using UnityEngine;
 public class AI_Enemy : MonoBehaviour
 {
 
+    public enum ENEMY_STATE {PATROL, CHASE, ATTACK};
+    private ENEMY_STATE currentState = ENEMY_STATE.PATROL;
     private UnityEngine.AI.NavMeshAgent thisAgent = null;
-
     public Transform patrolDestination = null;
 
     private void Awake() {
