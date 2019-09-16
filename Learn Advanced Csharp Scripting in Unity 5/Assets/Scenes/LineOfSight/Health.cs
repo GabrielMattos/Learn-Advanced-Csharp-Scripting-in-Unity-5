@@ -11,13 +11,12 @@ public class Health : MonoBehaviour
 
         set {
 
-            heathPoints = value;
+            healthPoints = value;
 
             if(HealthPoints <= 0)
                 Destroy(gameObject);
         }
     }
 
-    [Serializefield]
-    private float healthPoints = 100f;
+    public float healthPoints = 100f;
 }

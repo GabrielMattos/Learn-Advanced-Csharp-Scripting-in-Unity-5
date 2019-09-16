@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class AI_Enemy : MonoBehaviour
 {
-
     public enum ENEMY_STATE {PATROL, CHASE, ATTACK};
-    public ENEMY_STATE currentState = ENEMY_STATE.PATROL;
-    public UnityEngine.AI.NavMeshAgent thisAgent = null;
-    public Transform patrolDestination = null;
-
     public ENEMY_STATE CurrentState {
 
         get { 
@@ -36,10 +31,50 @@ public class AI_Enemy : MonoBehaviour
         }
     }
 
+    public ENEMY_STATE currentState = ENEMY_STATE.PATROL;
+
+    private LineSight thisLineSight = null;
+    public UnityEngine.AI.NavMeshAgent thisAgent = null;
+
+    private Transform thisTransform = null;
+
+    public Health playerHealth = null;
+
+    private Transform playerTranform = null;
+    public Transform patrolDestination = null;
+    public float maxDamage = 100f;
+
+    private void Awake() {
+        
+        thisLineSight = GetComponent<LineSight>();
+        thisAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        thisTransform = GetComponent<Transform>();
+        playerTranform = playerHealth.GetComponent<Transform>();
+    }
+
+    private void Start() {
+        
+        CurrentState = ENEMY_STATE.PATROL;
+    }
 
     public IEnumerator AIPatrol() {
 
         while(currentState == ENEMY_STATE.PATROL) {
+
+            thisLineSight.sensitity = LineSight.sightSensitivity.STRICT;
+
+            thisAgent.Resume();
+            thisAgent.SetDestination(patrolDestination.position);
+
+            while(thisAgent.pathPending)
+                yield return null;
+
+            if(thisLineSight.canSeeTarget) {
+                thisAgent.Stop();
+                CurrentState = ENEMY_STATE.CHASE;
+                yield break;
+            }
+
             yield return null;
         }
     }
@@ -60,11 +95,6 @@ public class AI_Enemy : MonoBehaviour
         while(currentState == ENEMY_STATE.ATTACK) {
             yield return null;
         }
-    }
-
-    private void Awake() {
-        
-        thisAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
